@@ -1,0 +1,172 @@
+.navbar_bg {
+    width: 85%; /* Reduced from 90% */
+    margin: 0.8rem auto 0;
+    padding-block: 0rem;
+    background-color: rgb(19, 14, 14);
+    border-radius: 50rem;
+    min-width: fit-content; /* Ensures it doesn't get too small for content */
+}
+.navbar {
+    width: 100%;
+    padding-block: 0rem;
+    position: sticky; /* Changed from relative to sticky */
+    top: 0; /* Required for sticky positioning */
+    z-index: 111111111;
+    border-radius: 100rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    background-color: transparent; /* Ensure the navbar itself is transparent */
+    backdrop-filter: blur(10px); /* Optional: adds a nice blur effect to content behind */
+    transition: transform 0.2s ease-in-out;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+   
+}
+
+
+.navbar_container{
+    width: 90%;
+    margin:  0 auto;
+    display:  grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.navbar_container_left{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items:  center;
+}
+
+.logo{
+  color: var(--icons-color);
+  font-size: 4rem;
+}
+
+.navbar_container_left_box_input_box{
+    width: 80%;
+    border: 1px solid var(--icons-color);
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    border-radius: 2rem;
+}
+
+.navbar_container_left_box_input_box input{
+    width: 90%;
+    border: none;
+    outline: none;
+    background-color:  transparent;
+}
+
+.search_icon{
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+/* //-------RIGHT */
+
+.navbar_container_right{
+    display: grid;
+    grid-template-columns: 1fr 1fr .5fr 1fr .3fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.navbar_container_right_discover,
+.navbar_container_right_help{
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar_container_right_discover_box,
+.navbar_container_right_help_box{
+    position: absolute;
+    padding: 1rem .5rem;
+    box-shadow: var(--box-shadow);
+    font-size: 1rem;
+    width: 15rem;
+    border-radius: 1rem;
+    background-color: var(--main-bg-color);
+}
+
+.navbar_container_right_notify{
+    position: relative;
+    cursor: pointer;
+}
+
+.notify{
+    font-size: 2rem;
+}
+
+.navbar_container_right_button,
+.navbar_container_right_profile_box{
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar_container_right_profile{
+    border-radius: 50%;
+}
+
+.navbar_container_right_menuBtn{
+    display: none;
+}
+
+.menuIcon{
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+/* /////------SIDEBAR */
+
+.sideBar{
+    position: fixed;
+    top: 0;
+    width: 24rem;
+    background-color: var(--main-bg-color);
+    box-shadow: var(--box-shadow);
+    height: 100vh;
+    overflow-y: auto;
+    display: none;
+    z-index: 11111;
+    border-radius: 20px;
+}
+
+.sideBar::-webkit-scrollbar{
+    display: none;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 768px) {
+    .navbar_container{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navbar_container_left{
+        grid-template-columns: 1fr;
+    }
+
+    .navbar_container_right{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .navbar_container_right_menuBtn{
+        display: block;
+    }
+
+    .navbar_container_left_box_input_box,
+    .navbar_container_right_discover,
+    .navbar_container_right_help,
+    .navbar_container_right_button{
+        display: none;
+    }
+
+    .sideBar{
+        display: block;
+    }
+}
